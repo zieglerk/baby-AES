@@ -1,4 +1,6 @@
 '''
+[InputMask, OutputMask] [samples]
+
 lin_ca gets as input samples and an Input/OutputMask.  It does not care about the rounds involved -- the samples "know" about that. (at least in the file name).
 
 We run with linear trail a1 | a2 | a3 as input and determine Input/OutputMask based on number of rounds

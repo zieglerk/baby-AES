@@ -1,7 +1,7 @@
 r"""
 Perform an attack using differential cryptanalysis.
 
-<optional long description>
+[InputXOR, OutputXOR] [samples] :: recover words of last roundkey
 
 INPUT:
 
