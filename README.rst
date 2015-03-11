@@ -10,6 +10,13 @@ University of Bonn in `summer 2013
 and `summer 2014
 <https://cosec.bit.uni-bonn.de/students/teaching/14ss/14ss-taoc/>`_.
 
+The implemented attacks are statistical and recover some words of the
+last roundkey. The remaining words can then be found by brute
+force. We choose to always attack the first and last word of the last
+roundkey. This leads to a smoother exposition, since all the
+trails/differentials then end in the first half of the last but one
+roundkey.
+
 Submodules
 ==========
 
@@ -117,16 +124,6 @@ dict2hist.sage
 
     - hist.eps -- histogram in eps-format
 
-Design decisions
-================
-
-- AIM :: it makes sense to fix the active words in the input to the last round
-  on which we want to concentrate
-- CHOICE :: we opt for the 1st (and optionally 2nd) word, such that the
-  recovered words of the last roundkey are 1st (and optionally 4th)
-
-- secret_keys.sobj
-
 Usage
 =====
 
@@ -137,11 +134,19 @@ Load the module in your local Sage installation::
 
 See each module's documentation for further instructions.
 
-timings for full key recovery on cosec-og-02:
+Timings
+-------
 
-- attack_with_diff (w/o filter): 4 h 42 min 58 s
-- attack_with_diff (w/ filter): 4 h 8 min 32 s
+partial roundkey recovery on a single core 3.4 GHz using Sage 6.3
+
+- attack_with_diff: 4 h 42 min 58 s
+- attack_with_diff (with filter): 4 h 8 min 32 s
 - attack_with_lin: 2 h 26 min 21 s
+
+Todos
+=====
+
+- fast inversion of keyschedule to complete the full key recovery
 
 Requirements
 ============
@@ -149,7 +154,7 @@ Requirements
 This code requires the free mathematical software [Sage]_ which is
 available for download at http://www.sagemath.org and as cloud service
 at https://cloud.sagemath.org. It has been tested under GNU/Linux with
-Sage 6.4.
+Sage 6.3.
 
 
 References
