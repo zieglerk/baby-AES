@@ -1,0 +1,5 @@
+# auto-generated from .sage
+attack_with_diff.py
+attack_with_lin.py
+create_challenge.py
+dict2hist.py
